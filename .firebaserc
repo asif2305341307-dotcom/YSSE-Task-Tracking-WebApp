@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "firebase.cmd use --add": "ysse-task-tracking-webapp",
+    "default": "ysse-task-tracking"
+  },
+  "targets": {},
+  "etags": {}
+}
