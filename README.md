@@ -2,8 +2,8 @@
 
 A responsive web app where interns submit internship tasks and track their review status, and an admin reviews everything from a secure dashboard with live charts.
 
-- **Live App URL:** `https://YOUR_FIREBASE_PROJECT_ID.web.app` *(add after you deploy)*
-- **GitHub Repository:** `https://github.com/YOUR_USERNAME/YOUR_REPO` *(add after you push)*
+- **Live App URL:** https://ysse-task-tracking.web.app 
+- **GitHub Repository:** https://github.com/asif2305341307-dotcom/YSSE-Task-Tracking-WebApp
 
 > Status: the code is written and every JavaScript file passes a syntax check. It has **not** been run against a real Firebase project yet, so nothing here claims it is deployed or fully tested. Follow `TESTING.md` after setup.
 
