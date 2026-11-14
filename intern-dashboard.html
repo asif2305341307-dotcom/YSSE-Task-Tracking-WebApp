@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Intern Dashboard · YSSE Task Tracker</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <a class="brand" href="intern-dashboard.html"><span class="dot"></span> YSSE Task Tracker</a>
+      <nav class="nav">
+        <a class="active" href="intern-dashboard.html">Dashboard</a>
+        <a href="submit-task.html">Submit Task</a>
+        <a href="track-submission.html">Track</a>
+        <button type="button" data-logout>Logout</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page container">
+    <div class="page-head"><h1 style="font-size:1.8rem">My Dashboard</h1></div>
+
+    <section class="card" style="margin-bottom:1.5rem">
+      <div class="profile-line">
+        <div><span>Intern Name</span><strong id="p-name">…</strong></div>
+        <div><span>Intern ID</span><strong id="p-id">…</strong></div>
+        <div><span>Email</span><strong id="p-email">…</strong></div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="stat"><div class="label">Total Submitted</div><div class="value" id="s-total">0</div></div>
+      <div class="stat pending"><div class="label">Pending</div><div class="value" id="s-pending">0</div></div>
+      <div class="stat"><div class="label">Approved</div><div class="value" id="s-approved">0</div></div>
+      <div class="stat rejected"><div class="label">Rejected</div><div class="value" id="s-rejected">0</div></div>
+    </section>
+
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:.75rem; gap:1rem; flex-wrap:wrap">
+      <h2 style="margin:0">Submission history</h2>
+      <a class="btn btn-primary btn-sm" href="submit-task.html">+ Submit a task</a>
+    </div>
+    <div id="msg" class="msg" hidden></div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Task</th><th>Submitted</th><th>Status</th><th>Admin feedback</th></tr></thead>
+        <tbody id="history"><tr><td colspan="4" class="empty">Loading…</td></tr></tbody>
+      </table>
+    </div>
+  </main>
+
+  <script type="module" src="js/intern-dashboard.js"></script>
+</body>
+</html>

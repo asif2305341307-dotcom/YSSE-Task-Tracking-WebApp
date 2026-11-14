@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Submit Task · YSSE Task Tracker</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <a class="brand" href="intern-dashboard.html"><span class="dot"></span> YSSE Task Tracker</a>
+      <nav class="nav">
+        <a href="intern-dashboard.html">Dashboard</a>
+        <a class="active" href="submit-task.html">Submit Task</a>
+        <a href="track-submission.html">Track</a>
+        <button type="button" data-logout>Logout</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page container" style="max-width:760px">
+    <div class="page-head">
+      <h1 style="font-size:1.8rem">Submit a Task</h1>
+      <p class="muted">All fields except notes are required. Links must be valid URLs.</p>
+    </div>
+
+    <div id="msg" class="msg" hidden></div>
+
+    <form id="form" class="card" novalidate>
+      <div class="grid-2">
+        <div class="field"><label for="internId">Intern ID</label><input id="internId" readonly></div>
+        <div class="field"><label for="submittedAt">Submission date &amp; time</label><input id="submittedAt" readonly></div>
+      </div>
+
+      <div class="field">
+        <label for="task">Task</label>
+        <select id="task" required><option value="">Loading tasks…</option></select>
+        <p class="hint" id="task-hint"></p>
+      </div>
+
+      <div class="grid-2">
+        <div class="field"><label for="taskNumber">Task number</label><input id="taskNumber" readonly></div>
+        <div class="field"><label for="taskTitle">Task title</label><input id="taskTitle" readonly></div>
+      </div>
+
+      <div class="field">
+        <label for="description">Task description</label>
+        <textarea id="description" maxlength="3000" placeholder="What did you build? (at least 10 characters)" required></textarea>
+      </div>
+
+      <div class="field">
+        <label for="githubUrl">GitHub repository link</label>
+        <input id="githubUrl" type="url" placeholder="https://github.com/your-name/your-repo" required>
+      </div>
+
+      <div class="field">
+        <label for="reportUrl">Report / documentation link</label>
+        <input id="reportUrl" type="url" placeholder="https://drive.google.com/..." required>
+      </div>
+
+      <div class="field">
+        <label for="notes">Submission notes <span class="muted">(optional)</span></label>
+        <textarea id="notes" maxlength="1000"></textarea>
+      </div>
+
+      <button id="submit-btn" class="btn btn-primary" type="submit">Submit task</button>
+    </form>
+  </main>
+
+  <script type="module" src="js/submit-task.js"></script>
+</body>
+</html>

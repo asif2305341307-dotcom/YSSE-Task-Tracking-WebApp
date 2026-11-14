@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Intern Login · YSSE Task Tracker</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <a class="brand" href="index.html"><span class="dot"></span> YSSE Task Tracker</a>
+      <nav class="nav"><a href="admin-login.html">Admin Login</a></nav>
+    </div>
+  </header>
+
+  <main class="auth-wrap">
+    <div class="card auth-card">
+      <h2>Intern Portal</h2>
+      <p class="muted">Sign in, or create an account to get your Intern ID.</p>
+
+      <div class="tabs" role="tablist">
+        <button type="button" id="tab-login" class="active">Login</button>
+        <button type="button" id="tab-register">Register</button>
+      </div>
+
+      <div id="msg" class="msg" hidden></div>
+
+      <form id="login-form" novalidate>
+        <div class="field"><label for="l-email">Email</label><input id="l-email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="l-pass">Password</label><input id="l-pass" type="password" autocomplete="current-password" required></div>
+        <button class="btn btn-primary" style="width:100%" type="submit">Login</button>
+      </form>
+
+      <form id="register-form" novalidate hidden>
+        <div class="field"><label for="r-name">Full name</label><input id="r-name" type="text" autocomplete="name" maxlength="80" required></div>
+        <div class="field"><label for="r-email">Email</label><input id="r-email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="r-pass">Password</label><input id="r-pass" type="password" autocomplete="new-password" minlength="6" required><p class="hint">At least 6 characters. Your password is handled by Firebase and never stored in our database.</p></div>
+        <button class="btn btn-primary" style="width:100%" type="submit">Create account</button>
+      </form>
+    </div>
+  </main>
+
+  <script type="module" src="js/login-page.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YSSE Task Tracker</title>
+  <meta name="description" content="Submit internship tasks and track their review status with your Intern ID.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <a class="brand" href="index.html"><span class="dot"></span> YSSE Task Tracker</a>
+      <nav class="nav">
+        <a href="#features">Features</a>
+        <a href="admin-login.html">Admin Login</a>
+        <a class="btn btn-primary btn-sm" href="login.html">Intern Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="eyebrow">YSSE Internship Portal</p>
+        <h1>Submit your tasks.<br><span>Track every review.</span></h1>
+        <p class="lead">
+          One place for interns to submit task work with a GitHub link and report,
+          and to follow the status and feedback using their own Intern ID.
+          Admins review, approve or reject, and see live statistics.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="login.html">Intern Login</a>
+          <a class="btn btn-ghost" href="admin-login.html">Admin Login</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="container">
+        <h2>What you can do</h2>
+        <p class="muted">Built on Firebase Authentication and Cloud Firestore, hosted on Firebase Hosting.</p>
+        <div class="feature-grid">
+          <article class="feature"><div class="ico">1</div><h3>Submit tasks</h3><p class="muted">Send your task number, description, GitHub repository and report link in one validated form.</p></article>
+          <article class="feature"><div class="ico">2</div><h3>Track by Intern ID</h3><p class="muted">See each submission's date, status and admin feedback. You only ever see your own work.</p></article>
+          <article class="feature"><div class="ico">3</div><h3>Admin review</h3><p class="muted">Admins search by Intern ID or task, filter by status, approve or reject, and leave feedback.</p></article>
+          <article class="feature"><div class="ico">4</div><h3>Live statistics</h3><p class="muted">Pie, bar and line charts update instantly from real Firestore data.</p></article>
+          <article class="feature"><div class="ico">5</div><h3>Secure by design</h3><p class="muted">Firestore security rules decide who can read or change data, not just the page you see.</p></article>
+          <article class="feature"><div class="ico">6</div><h3>Works on any screen</h3><p class="muted">Responsive layout for phones, tablets and desktops.</p></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">YSSE Systems Automation &amp; DataOps Internship · Task 05</div>
+  </footer>
+</body>
+</html>

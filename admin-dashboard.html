@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Dashboard · YSSE Task Tracker</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <a class="brand" href="admin-dashboard.html"><span class="dot"></span> YSSE Admin</a>
+      <nav class="nav">
+        <a class="active" href="admin-dashboard.html">Dashboard</a>
+        <a href="track-submission.html">Track by Intern ID</a>
+        <button type="button" data-logout>Logout</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page container">
+    <div class="page-head"><h1 style="font-size:1.8rem">Admin Dashboard</h1><p class="muted" id="who"></p></div>
+    <div id="msg" class="msg" hidden></div>
+
+    <section class="stats">
+      <div class="stat"><div class="label">Total Interns</div><div class="value" id="s-interns">0</div></div>
+      <div class="stat"><div class="label">Total Submissions</div><div class="value" id="s-total">0</div></div>
+      <div class="stat pending"><div class="label">Pending</div><div class="value" id="s-pending">0</div></div>
+      <div class="stat"><div class="label">Approved</div><div class="value" id="s-approved">0</div></div>
+      <div class="stat rejected"><div class="label">Rejected</div><div class="value" id="s-rejected">0</div></div>
+    </section>
+
+    <section class="charts">
+      <div class="card"><h3>Status distribution</h3><div class="chart-box"><canvas id="chart-status"></canvas><div class="chart-empty" id="chart-status-empty">No data yet</div></div></div>
+      <div class="card"><h3>Submissions by task</h3><div class="chart-box"><canvas id="chart-tasks"></canvas><div class="chart-empty" id="chart-tasks-empty">No data yet</div></div></div>
+      <div class="card"><h3>Submission trend</h3><div class="chart-box"><canvas id="chart-trend"></canvas><div class="chart-empty" id="chart-trend-empty">No data yet</div></div></div>
+    </section>
+
+    <h2>Manage submissions</h2>
+    <div class="toolbar">
+      <input id="f-intern" type="search" placeholder="Search by Intern ID (e.g. YSSE-2026-001)" aria-label="Search by Intern ID">
+      <input id="f-title" type="search" placeholder="Search by task title" aria-label="Search by task title">
+      <select id="f-status" aria-label="Filter by status">
+        <option value="">All statuses</option>
+        <option value="pending">Pending</option>
+        <option value="approved">Approved</option>
+        <option value="rejected">Rejected</option>
+      </select>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Intern ID</th><th>Task</th><th>Submitted</th><th>Status</th><th></th></tr></thead>
+        <tbody id="rows"><tr><td colspan="5" class="empty">Loading…</td></tr></tbody>
+      </table>
+    </div>
+
+    <section class="split">
+      <form id="task-form" class="card" novalidate>
+        <h2>Publish a task</h2>
+        <p class="muted">Interns can only submit work for tasks listed here.</p>
+        <div class="grid-2">
+          <div class="field"><label for="t-number">Task number</label><input id="t-number" type="number" min="1" step="1" required></div>
+          <div class="field"><label for="t-deadline">Deadline <span class="muted">(optional)</span></label><input id="t-deadline" type="date"></div>
+        </div>
+        <div class="field"><label for="t-title">Title</label><input id="t-title" type="text" maxlength="150" required></div>
+        <div class="field"><label for="t-desc">Description</label><textarea id="t-desc" maxlength="2000"></textarea></div>
+        <button class="btn btn-primary" type="submit">Save task</button>
+        <p class="hint">Saving a task with an existing number updates that task.</p>
+      </form>
+      <div class="card"><h2>Tasks</h2><div id="task-list"><p class="muted">Loading…</p></div></div>
+    </section>
+  </main>
+
+  <div class="modal" id="modal" hidden>
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="m-title">
+      <div class="modal-head"><h2 id="m-title" style="margin:0">Submission</h2><button class="btn btn-ghost btn-sm" id="m-close" type="button">Close</button></div>
+      <div id="m-msg" class="msg" hidden></div>
+      <div id="m-body"></div>
+      <div class="field" style="margin-top:1rem">
+        <label for="m-status">Status</label>
+        <select id="m-status"><option value="pending">Pending</option><option value="approved">Approved</option><option value="rejected">Rejected</option></select>
+      </div>
+      <div class="field">
+        <label for="m-feedback">Admin feedback</label>
+        <textarea id="m-feedback" maxlength="1000"></textarea>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-primary" id="m-approve" type="button">Approve</button>
+        <button class="btn btn-danger" id="m-reject" type="button">Reject</button>
+        <button class="btn btn-ghost" id="m-save" type="button">Save changes</button>
+        <button class="btn btn-danger" id="m-delete" type="button" style="margin-left:auto">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/admin-dashboard.js"></script>
+</body>
+</html>

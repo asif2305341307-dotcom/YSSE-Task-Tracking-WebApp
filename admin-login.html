@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Login · YSSE Task Tracker</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <a class="brand" href="index.html"><span class="dot"></span> YSSE Task Tracker</a>
+      <nav class="nav"><a href="login.html">Intern Login</a></nav>
+    </div>
+  </header>
+
+  <main class="auth-wrap">
+    <div class="card auth-card">
+      <h2>Admin Login</h2>
+      <p class="muted">Only accounts approved by the project owner can enter.</p>
+      <div id="msg" class="msg" hidden></div>
+      <form id="admin-form" novalidate>
+        <div class="field"><label for="email">Email</label><input id="email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="pass">Password</label><input id="pass" type="password" autocomplete="current-password" required></div>
+        <button class="btn btn-primary" style="width:100%" type="submit">Login as Admin</button>
+      </form>
+    </div>
+  </main>
+
+  <script type="module" src="js/admin-login.js"></script>
+</body>
+</html>
